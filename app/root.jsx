@@ -22,6 +22,7 @@ import config from '~/config.json';
 import styles from './root.module.css';
 import './reset.module.css';
 import './global.module.css';
+import { Cursor } from './components/cursor/cursor';
 
 export const links = () => [
   {
@@ -119,6 +120,7 @@ export default function App() {
       <body data-theme={theme}>
         <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
           <Progress />
+          <Cursor />
           <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
             Skip to main content
           </VisuallyHidden>

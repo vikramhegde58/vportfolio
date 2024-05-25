@@ -1,9 +1,9 @@
 {
   "name": "portfolio",
-  "homepage": "https://hamishw.com",
-  "description": "Portfolio site for Hamish Williams",
-  "repository": "https://github.com/HamishMW/portfolio.git",
-  "author": "Hamish Williams",
+  "homepage": "https://vikramhegde.in",
+  "description": "Portfolio site for Vikram Hegde",
+  "repository": "https://github.com/vikramhegde58/vportfolio.git",
+  "author": "Vikram Hegde",
   "sideEffects": false,
   "type": "module",
   "scripts": {
@@ -17,13 +17,12 @@
     "deploy:storybook": "wrangler pages deploy ./storybook-static --project-name portfolio-storybook --branch main"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.515.0",
+    "@emailjs/browser": "^4.3.3",
     "@mdx-js/react": "^3.0.1",
     "@remix-run/cloudflare": "^2.7.1",
     "@remix-run/cloudflare-pages": "^2.7.1",
     "@remix-run/react": "^2.7.1",
     "framer-motion": "11.0.5",
-    "isbot": "^4.1.0",
     "miniflare": "^3.20231030.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
