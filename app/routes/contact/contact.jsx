@@ -28,7 +28,7 @@ export const meta = () => {
 
 const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
-const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/; 
+const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
 export const Contact = () => {
   const errorRef = useRef();
@@ -41,48 +41,47 @@ export const Contact = () => {
   const sendEmail = async event => {
     setSending(true);
     event.preventDefault();
-    
+
     const email = emailInput.value;
     const message = messageInput.value;
-      const errors = {};
-        
-      // Handle input validation on the server
-      if (!email || !EMAIL_PATTERN.test(email)) {
-        errors.email = 'Please enter a valid email address.';
-      }
-    
-      if (!message) {
-        errors.message = 'Please enter a message.';
-      }
-    
-      if (email.length > MAX_EMAIL_LENGTH) {
-        errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
-      }
-    
-      if (message.length > MAX_MESSAGE_LENGTH) {
-        errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
-      }
-    
-      if (Object.keys(errors).length > 0) {
-         setActionData({ errors });
-         setSending(false);
-         return;
-      }
-    
-      emailjs.init({publicKey: 'n_YGg6NVmuyDMZaT6'});
-      try{
-        const response = await emailjs
-        .send('service_xjyez79', 'template_zeuom8j', {
-          to_email: email,
-          message,
-        });
-        console.log(response);
-        setSending(false);
-        setActionData({ success: true });
-      } catch(err) {
-        setSending(false);
-        console.error(err);
-      }
+    const errors = {};
+
+    // Handle input validation on the server
+    if (!email || !EMAIL_PATTERN.test(email)) {
+      errors.email = 'Please enter a valid email address.';
+    }
+
+    if (!message) {
+      errors.message = 'Please enter a message.';
+    }
+
+    if (email.length > MAX_EMAIL_LENGTH) {
+      errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
+    }
+
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setActionData({ errors });
+      setSending(false);
+      return;
+    }
+
+    emailjs.init({ publicKey: 'n_YGg6NVmuyDMZaT6' });
+    try {
+      const response = await emailjs.send('service_xjyez79', 'template_zeuom8j', {
+        to_email: email,
+        message,
+      });
+      console.log(response);
+      setSending(false);
+      setActionData({ success: true });
+    } catch (err) {
+      setSending(false);
+      console.error(err);
+    }
   };
 
   return (

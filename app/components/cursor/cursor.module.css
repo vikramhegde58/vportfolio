@@ -1,18 +1,18 @@
 .invertedCursor {
-    position: fixed;
-    width: 30px;
-    height: 30px;
-    background: #fff;
-    border-radius: 50%;
-    top: var(--y, 0);
-    left: var(--x, 0);
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    mix-blend-mode: difference;
-    transition: transform .2s;
-    pointer-events: none;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 50%;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  mix-blend-mode: difference;
+  transition: transform 0.2s;
+  pointer-events: none;
 }
 
 * {
-    cursor: none !important;
+  cursor: none !important;
 }

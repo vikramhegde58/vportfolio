@@ -62,7 +62,10 @@
   color: white;
   font-weight: var(--fontWeightMedium);
   font-size: var(--fontSizeBodyXS);
-  text-shadow: 0 0 3px var(--black), 0 0 5px var(--black), 0 0 20px var(--black);
+  text-shadow:
+    0 0 3px var(--black),
+    0 0 5px var(--black),
+    0 0 20px var(--black);
   transition: opacity var(--durationM) ease;
   transition-delay: var(--delay);
   font-family: var(--systemFontStack);

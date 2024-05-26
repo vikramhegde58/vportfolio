@@ -21,7 +21,8 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Vikram, currently I live in Bengaluru, India working as a senior Frontend Engineer at{' '}
+      I’m Vikram, currently I live in Bengaluru, India working as a senior Frontend
+      Engineer at{' '}
       <Link href="https://www.telusinternational.com/">Telus International</Link>.
     </Text>
 
@@ -34,8 +35,8 @@ const ProfileText = ({ visible, titleId }) => (
     </Text> */}
 
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my spare time I like to watch movies, play video games, and go for a drive. I’m always down for hearing
-      about new projects, so feel free to drop me a line.
+      In my spare time I like to watch movies, play video games, and go for a drive. I’m
+      always down for hearing about new projects, so feel free to drop me a line.
     </Text>
   </Fragment>
 );
