@@ -1,17 +1,17 @@
-import { DecoderText } from '~/components/decoder-text';
-import { Heading } from '~/components/heading';
-import { Section } from '~/components/section';
-import { useTheme } from '~/components/theme-provider';
-import { tokens } from '~/components/theme-provider/theme';
-import { Transition } from '~/components/transition';
-import { VisuallyHidden } from '~/components/visually-hidden';
-import { Link as RouterLink } from '@remix-run/react';
-import { useInterval, usePrevious, useScrollToHash } from '~/hooks';
+import { DecoderText } from '../../components/decoder-text';
+import { Heading } from '../../components/heading';
+import { Section } from '../../components/section';
+import { useTheme } from '../../components/theme-provider';
+import { tokens } from '../../components/theme-provider/theme';
+import { Transition } from '../../components/transition';
+import { VisuallyHidden } from '../../components/visually-hidden';
+import { useInterval, usePrevious, useScrollToHash } from '../../hooks';
 import { Suspense, lazy, useEffect, useState } from 'react';
-import { cssProps } from '~/utils/style';
-import config from '~/config.json';
-import { useHydrated } from '~/hooks/useHydrated';
+import { cssProps } from '../../utils/style';
+import config from '../../config.json';
+import { useHydrated } from '../../hooks/useHydrated';
 import styles from './intro.module.css';
+import { Link } from 'react-router-dom';
 
 const DisplacementSphere = lazy(() =>
   import('./displacement-sphere').then(module => ({ default: module.DisplacementSphere }))
@@ -111,7 +111,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                 </div>
               </Heading>
             </header>
-            <RouterLink
+            <Link
               to="/#project-1"
               className={styles.scrollIndicator}
               data-status={status}
@@ -119,8 +119,8 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               onClick={handleScrollClick}
             >
               <VisuallyHidden>Scroll to projects</VisuallyHidden>
-            </RouterLink>
-            <RouterLink
+            </Link>
+            <Link
               to="/#project-1"
               className={styles.mobileScrollIndicator}
               data-status={status}
@@ -137,7 +137,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               >
                 <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
               </svg>
-            </RouterLink>
+            </Link>
           </>
         )}
       </Transition>

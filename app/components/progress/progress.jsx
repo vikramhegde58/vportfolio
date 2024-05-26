@@ -1,6 +1,6 @@
-import { useNavigation } from '@remix-run/react';
 import { useRef, useEffect, useState } from 'react';
 import styles from './progress.module.css';
+import { useNavigation } from 'react-router-dom';
 
 export function Progress() {
   const [animationComplete, setAnimationComplete] = useState(false);

@@ -1,22 +1,21 @@
-import { Button } from '~/components/button';
-import { DecoderText } from '~/components/decoder-text';
-import { Divider } from '~/components/divider';
-import { Footer } from '~/components/footer';
-import { Heading } from '~/components/heading';
-import { Icon } from '~/components/icon';
-import { Input } from '~/components/input';
-import { Section } from '~/components/section';
-import { Text } from '~/components/text';
-import { tokens } from '~/components/theme-provider/theme';
-import { Transition } from '~/components/transition';
-import { useFormInput } from '~/hooks';
+import { Button } from '../../components/button';
+import { DecoderText } from '../../components/decoder-text';
+import { Divider } from '../../components/divider';
+import { Footer } from '../../components/footer';
+import { Heading } from '../../components/heading';
+import { Icon } from '../../components/icon';
+import { Input } from '../../components/input';
+import { Section } from '../../components/section';
+import { Text } from '../../components/text';
+import { tokens } from '../../components/theme-provider/theme';
+import { Transition } from '../../components/transition';
+import { useFormInput } from '../../hooks';
 import { useRef, useState } from 'react';
-import { cssProps, msToNum, numToMs } from '~/utils/style';
-import { baseMeta } from '~/utils/meta';
-import { json } from '@remix-run/cloudflare';
+import { cssProps, msToNum, numToMs } from '../../utils/style';
+import { baseMeta } from '../../utils/meta';
 import styles from './contact.module.css';
 import emailjs from '@emailjs/browser';
-import { Form } from '@remix-run/react';
+import { Form } from 'react-router-dom';
 
 export const meta = () => {
   return baseMeta({

@@ -1,10 +1,10 @@
-import { Icon } from '~/components/icon';
-import { Loader } from '~/components/loader';
-import { Transition } from '~/components/transition';
-import { Link } from '@remix-run/react';
+import { Icon } from '../../components/icon';
+import { Loader } from '../../components/loader';
+import { Transition } from '../../components/transition';
 import { forwardRef } from 'react';
-import { classes } from '~/utils/style';
+import { classes } from '../../utils/style';
 import styles from './button.module.css';
+import { Link } from 'react-router-dom';
 
 function isExternalLink(href) {
   return href?.includes('://');

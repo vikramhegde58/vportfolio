@@ -1,17 +1,17 @@
-import { Icon } from '~/components/icon';
-import { Monogram } from '~/components/monogram';
-import { useTheme } from '~/components/theme-provider';
-import { tokens } from '~/components/theme-provider/theme';
-import { Transition } from '~/components/transition';
-import { useScrollToHash, useWindowSize } from '~/hooks';
-import { Link as RouterLink, useLocation } from '@remix-run/react';
+import { Icon } from '../../components/icon';
+import { Monogram } from '../../components/monogram';
+import { useTheme } from '../../components/theme-provider';
+import { tokens } from '../../components/theme-provider/theme';
+import { Transition } from '../../components/transition';
+import { useScrollToHash, useWindowSize } from '../../hooks';
 import { useEffect, useRef, useState } from 'react';
-import { cssProps, media, msToNum, numToMs } from '~/utils/style';
+import { cssProps, media, msToNum, numToMs } from '../../utils/style';
 import { NavToggle } from './nav-toggle';
 import { ThemeToggle } from './theme-toggle';
 import { navLinks, socialLinks } from './nav-data';
-import config from '~/config.json';
+import config from '../../config.json';
 import styles from './navbar.module.css';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Navbar = () => {
   const [current, setCurrent] = useState();
@@ -141,7 +141,7 @@ export const Navbar = () => {
 
   return (
     <header className={styles.navbar} ref={headerRef}>
-      <RouterLink
+      <Link
         unstable_viewTransition
         prefetch="intent"
         to={location.pathname === '/' ? '/#intro' : '/'}
@@ -151,12 +151,12 @@ export const Navbar = () => {
         onClick={handleMobileNavClick}
       >
         <Monogram highlight />
-      </RouterLink>
+      </Link>
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
       <nav className={styles.nav}>
         <div className={styles.navList}>
           {navLinks.map(({ label, pathname }) => (
-            <RouterLink
+            <Link
               unstable_viewTransition
               prefetch="intent"
               to={pathname}
@@ -167,7 +167,7 @@ export const Navbar = () => {
               onClick={handleNavItemClick}
             >
               {label}
-            </RouterLink>
+            </Link>
           ))}
         </div>
         <NavbarIcons desktop />
@@ -176,7 +176,7 @@ export const Navbar = () => {
         {({ visible, nodeRef }) => (
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
             {navLinks.map(({ label, pathname }, index) => (
-              <RouterLink
+              <Link
                 unstable_viewTransition
                 prefetch="intent"
                 to={pathname}
@@ -192,7 +192,7 @@ export const Navbar = () => {
                 })}
               >
                 {label}
-              </RouterLink>
+              </Link>
             ))}
             <NavbarIcons />
             <ThemeToggle isMobile />

@@ -14,7 +14,7 @@
     --mobileNavOffset: calc(var(--spaceOuter) * 2 + var(--space2XL));
   }
 
-  :global(html, body) {
+  :global(html, body, .body) {
     font-family: var(--fontStack);
     font-weight: var(--fontWeightRegular);
     background-color: var(--background);

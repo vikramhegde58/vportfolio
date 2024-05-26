@@ -1,6 +1,6 @@
 import { createRef, useCallback, useEffect } from 'react';
 import styles from './cursor.module.css';
-import { useLocation } from '@remix-run/react';
+import { useLocation } from 'react-router-dom';
 
 export const Cursor = () => {
   const invertedCursorRef = createRef();

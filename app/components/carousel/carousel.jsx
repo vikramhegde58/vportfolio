@@ -1,5 +1,5 @@
 import { animate, useReducedMotion } from 'framer-motion';
-import { useInViewport } from '~/hooks';
+import { useInViewport } from './hooks';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Color,
@@ -12,9 +12,9 @@ import {
   ShaderMaterial,
   WebGLRenderer,
 } from 'three';
-import { resolveSrcFromSrcSet } from '~/utils/image';
-import { cssProps } from '~/utils/style';
-import { cleanRenderer, cleanScene, textureLoader } from '~/utils/three';
+import { resolveSrcFromSrcSet } from './utils/image';
+import { cssProps } from './utils/style';
+import { cleanRenderer, cleanScene, textureLoader } from './utils/three';
 import styles from './carousel.module.css';
 import fragment from './carousel-fragment.glsl?raw';
 import vertex from './carousel-vertex.glsl?raw';

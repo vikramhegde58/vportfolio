@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
-import { Link as RouterLink } from '@remix-run/react';
-import { classes } from '~/utils/style';
+import { classes } from '../../utils/style';
 import styles from './link.module.css';
+import { Link as RouterLink } from 'react-router-dom';
 
 // File extensions that can be linked to
 const VALID_EXT = ['txt', 'png', 'jpg'];

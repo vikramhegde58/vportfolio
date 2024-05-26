@@ -1,6 +1,6 @@
 import { useReducedMotion } from 'framer-motion';
-import { useLocation, useNavigate } from '@remix-run/react';
 import { useCallback, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export function useScrollToHash() {
   const scrollTimeout = useRef();

@@ -1,16 +1,16 @@
-import { Code } from '~/components/code';
-import { Heading } from '~/components/heading';
-import { Icon } from '~/components/icon';
-import { Link } from '~/components/link';
-import { List, ListItem } from '~/components/list';
-import { Text } from '~/components/text';
+import { Code } from './components/code';
+import { Heading } from './components/heading';
+import { Icon } from './components/icon';
+import { Link } from './components/link';
+import { List, ListItem } from './components/list';
+import { Text } from './components/text';
 import { Children } from 'react';
 import styles from './post-markdown.module.css';
-import { Link as RouterLink } from '@remix-run/react';
+import { Link as RouterLink } from 'react-router-dom';
 
 const PostHeadingLink = ({ id }) => {
   return (
-    <RouterLink className={styles.headingLink} to={`#${id}`} aria-label="Link to heading">
+    < RouterLink className={styles.headingLink} to={`#${id}`} aria-label="Link to heading">
       <Icon icon="link" />
     </RouterLink>
   );

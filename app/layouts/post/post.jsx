@@ -1,18 +1,18 @@
-import { Divider } from '~/components/divider';
-import { Footer } from '~/components/footer';
-import { Heading } from '~/components/heading';
-import { Image } from '~/components/image';
-import { Section } from '~/components/section';
-import { Text } from '~/components/text';
-import { tokens } from '~/components/theme-provider/theme';
-import { Transition } from '~/components/transition';
-import { useParallax, useScrollToHash } from '~/hooks';
+import { Divider } from './components/divider';
+import { Footer } from './components/footer';
+import { Heading } from './components/heading';
+import { Image } from './components/image';
+import { Section } from './components/section';
+import { Text } from './components/text';
+import { tokens } from './components/theme-provider/theme';
+import { Transition } from './components/transition';
+import { useParallax, useScrollToHash } from './hooks';
 import { useRef, useState, useEffect } from 'react';
-import { clamp } from '~/utils/clamp';
-import { formatDate } from '~/utils/date';
-import { cssProps, msToNum, numToMs } from '~/utils/style';
+import { clamp } from './utils/clamp';
+import { formatDate } from './utils/date';
+import { cssProps, msToNum, numToMs } from './utils/style';
 import styles from './post.module.css';
-import { Link as RouterLink } from '@remix-run/react';
+import { Link } from 'react-router-dom';
 
 export const Post = ({ children, title, date, banner, timecode }) => {
   const scrollToHash = useScrollToHash();
@@ -79,7 +79,7 @@ export const Post = ({ children, title, date, banner, timecode }) => {
               ))}
             </Heading>
             <div className={styles.details}>
-              <RouterLink
+              <Link
                 to="#postContent"
                 className={styles.arrow}
                 aria-label="Scroll to post content"
@@ -94,7 +94,7 @@ export const Post = ({ children, title, date, banner, timecode }) => {
                 >
                   <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
                 </svg>
-              </RouterLink>
+              </Link>
               <div className={styles.timecode}>{timecode}</div>
             </div>
           </div>
