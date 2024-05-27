@@ -1,20 +1,32 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
-  // build: {
-  //   assetsInlineLimit: 1024,
-  //   outDir: 'dist', // Ensure your build output directory is correctly set
-  // },
+  build: {
+    assetsInlineLimit: 0,
+    rollupOptions: {
+      plugins: [
+        {
+          name: 'exclude-inline-svg',
+          enforce: 'pre',
+          resolveId(source) {
+            if (source.endsWith('.svg')) {
+              return null;
+            }
+          },
+          load(id) {
+            if (id.endsWith('.svg')) {
+              return null;
+            }
+          },
+        },
+      ],
+    },
+  },
   server: {
     port: 7777,
   },
-  css: {
-    modules: {
-      localsConvention: 'camelCase',
-    },
-  },
-  plugins: [react()]
+  plugins: [react(), svgr()]
 });

@@ -5,8 +5,6 @@ import { VisuallyHidden } from './components/visually-hidden';
 import { Navbar } from './layouts/navbar';
 import { Progress } from './components/progress';
 import styles from './root.module.css';
-import './reset.module.css';
-import './global.module.css';
 import { Cursor } from './components/cursor/cursor';
 import { useState } from 'react';
 import { Home } from './routes/home/home';

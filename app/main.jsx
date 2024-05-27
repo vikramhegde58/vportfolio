@@ -6,6 +6,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+// import './reset.module.css';
 import './index.css';
 import { Contact } from './routes/contact/contact.jsx';
 import App from './root.jsx';
