@@ -1,0 +1,180 @@
+.skills {
+  width: 100vw;
+  margin-bottom: 80px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: center;
+
+  @media (--mediaTablet) {
+    padding-top: 50px;
+    padding-right: 80px;
+    padding-left: 160px;
+    height: auto;
+    margin-bottom: 40px;
+  }
+
+  @media (--mediaMobile) {
+    padding-top: var(--space2XL);
+    overflow-x: hidden;
+  }
+
+  @media (--mediaMobile),
+  (--mediaMobileLS) {
+    padding-right: var(--spaceOuter);
+    padding-left: var(--spaceOuter);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--maxWidthL);
+  width: 100%;
+
+  @media (--mediaTablet) {
+    max-width: 100%;
+  }
+}
+
+.title {
+  margin-bottom: var(--spaceL);
+  opacity: 0;
+  transition: opacity var(--durationXL) ease var(--durationM);
+
+  &[data-visible='true'] {
+    opacity: 1;
+  }
+}
+
+.divider {
+  margin-bottom: var(--space4XL);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space2XL);
+
+  @media (--mediaTablet) {
+    grid-template-columns: 1fr;
+    gap: var(--spaceXL);
+  }
+}
+
+.card {
+  position: relative;
+  background: var(--backgroundLight);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  transform: translateY(30px);
+  opacity: 0;
+  transition: transform var(--durationXL) ease, opacity var(--durationXL) ease;
+  backdrop-filter: blur(10px);
+
+  &[data-visible='true'] {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* The hover glow effect that follows the cursor */
+.cardGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+      rgba(0, 229, 255, 0.15),
+      transparent 40%);
+}
+
+.card:hover .cardGlow {
+  opacity: 1;
+}
+
+/* To get the glowing border effect acting as a spotlight */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(400px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+      rgba(0, 229, 255, 0.8),
+      transparent 40%);
+  /* Use mask to only show the border */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  padding: var(--space3XL);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media (--mediaMobile) {
+    padding: var(--space2XL);
+  }
+}
+
+.categoryTitle {
+  margin-bottom: var(--spaceXL);
+  color: var(--textTitle);
+  font-weight: var(--fontWeightMedium);
+  letter-spacing: 0.5px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spaceS);
+  margin-top: auto;
+}
+
+.pill {
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  color: var(--textBody);
+  transition: all var(--durationM) ease;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: translateY(10px);
+  cursor: default;
+
+  &[data-visible='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background: rgba(0, 229, 255, 0.08);
+    border-color: rgba(0, 229, 255, 0.3);
+    color: var(--textTitle);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px -5px rgba(0, 229, 255, 0.15);
+  }
+}

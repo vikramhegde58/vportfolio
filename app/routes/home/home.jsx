@@ -7,13 +7,16 @@ import gamestackTexture from '../../assets/gamestack-login.jpg';
 import sliceTextureLarge from '../../assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '../../assets/slice-app-placeholder.jpg';
 import sliceTexture from '../../assets/slice-app.jpg';
-import sprTextureLarge from '../../assets/spr-lesson-builder-dark-large.jpg';
-import sprTexturePlaceholder from '../../assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from '../../assets/spr-lesson-builder-dark.jpg';
+import overlayText1 from '../../assets/overlay-text-1.png';
+import overlayText2 from '../../assets/overlay-text-2.png';
+import tealfoxScreenshot from '../../assets/tealfox-screenshot.png';
 import { Footer } from '../../components/footer';
 import { baseMeta } from '../../utils/meta';
 import { Intro } from './intro';
 import { Profile } from './profile';
+import { ProjectSummary } from './project-summary';
+import { Experience } from './experience';
+import { Skills } from './skills';
 import { useEffect, useRef, useState } from 'react';
 import config from '../../config.json';
 import styles from './home.module.css';
@@ -49,13 +52,14 @@ export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
-  // const projectOne = useRef();
-  // const projectTwo = useRef();
-  // const projectThree = useRef();
+  const projectOne = useRef();
+  const projectTwo = useRef();
+  const experience = useRef();
+  const skills = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, details];
+    const sections = [intro, projectOne, projectTwo, experience, skills, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -97,22 +101,26 @@ export const Home = () => {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
-      {/* <ProjectSummary
+      <ProjectSummary
         id="project-1"
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
-        buttonText="View project"
-        buttonLink="/projects/smart-sparrow"
+        title="Tealfox AI"
+        description={
+          <>
+            A fullstack SaaS platform for automatic video captioning and transcription using React, Next.js, Remotion, and AssemblyAI. Visit <a href="https://tealfoxai.com" target="_blank" rel="noopener" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Tealfox AI</a> to see more.
+          </>
+        }
+        buttonText="Visit Tealfox AI"
+        buttonLink="https://tealfoxai.com"
         model={{
           type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
+          alt: 'Tealfox AI Interface',
           textures: [
             {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-              placeholder: sprTexturePlaceholder,
+              srcSet: `${tealfoxScreenshot} 1280w, ${tealfoxScreenshot} 2560w`,
+              placeholder: tealfoxScreenshot,
             },
           ],
         }}
@@ -123,45 +131,39 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
-        buttonText="View website"
-        buttonLink="https://gamestack.hamishw.com"
+        title="Overlay Text"
+        description={
+          <>
+            A lightweight utility tool designed to effortlessly place customizable text overlays onto images right within your browser. Visit <a href="https://overlaytext.com" target="_blank" rel="noopener" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Overlay Text</a> to try it out.
+          </>
+        }
+        buttonText="Visit Overlay Text"
+        buttonLink="https://overlaytext.com"
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'Overlay Text Web App',
           textures: [
             {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
-              placeholder: gamestackTexturePlaceholder,
+              srcSet: `${overlayText1} 375w, ${overlayText1} 750w`,
+              placeholder: overlayText1,
             },
             {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
+              srcSet: `${overlayText2} 375w, ${overlayText2} 750w`,
+              placeholder: overlayText2,
             },
           ],
         }}
       />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        buttonText="View project"
-        buttonLink="/projects/slice"
-        model={{
-          type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
-          textures: [
-            {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
-            },
-          ],
-        }}
-      /> */}
+      <Experience 
+        sectionRef={experience}
+        visible={visibleSections.includes(experience.current)}
+        id="experience"
+      />
+      <Skills 
+        sectionRef={skills}
+        visible={visibleSections.includes(skills.current)}
+        id="skills"
+      />
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}

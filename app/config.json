@@ -1,7 +1,14 @@
 {
   "name": "Vikram Hegde",
-  "role": "Frontend Engineer",
-  "disciplines": ["React", "Typescript", "Threejs", "Javascript", "OOP"],
+  "role": "Staff Frontend Engineer",
+  "disciplines": [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Redux",
+    "TailwindCSS",
+    "Three.js"
+  ],
   "url": "https://vikramhegde.in",
   "linkedin": "vikramhegde58",
   "github": "vikramhegde58",

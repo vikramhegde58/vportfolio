@@ -21,22 +21,13 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Vikram, currently I live in Bengaluru, India working as a senior Frontend
-      Engineer at{' '}
-      <Link href="https://www.telusinternational.com/">Telus International</Link>.
+      I’m Vikram, currently living in Bengaluru, India and working as a Staff Frontend Engineer at{' '}
+      <Link href="https://www.telusinternational.com/">Telus International</Link>. With over 8 years of experience, my focus is
+      on designing, developing, and optimizing complex web applications using modern JavaScript, TypeScript, React, and Next.js.
     </Text>
 
-    {/* <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Vikram, currently I live in Bengaluru, India working as a senior Frontend Engineer at{' '}
-      <Link href="https://www.telusinternational.com/">Telus International</Link>. My projects include UX design, UI
-      animations, and icon illustration. Being comfortable with code allows me to rapidly
-      prototype and validate experiences. If you’re interested in the tools and software I
-      use check out my <Link href="/uses">uses page</Link>.
-    </Text> */}
-
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my spare time I like to watch movies, play video games, and go for a drive. I’m
-      always down for hearing about new projects, so feel free to drop me a line.
+      I'm passionate about building robust, high-performance user experiences and architectural systems. In my spare time, I enjoy working on innovative side projects like <Link href="https://tealfoxai.com">Tealfox AI</Link>, playing video games, and going for a drive. I'm always open to hearing about new opportunities, so feel free to drop me a line.
     </Text>
   </Fragment>
 );
